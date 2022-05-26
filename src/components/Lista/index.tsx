@@ -1,4 +1,5 @@
 import React from "react";
+import style from './Lista.module.scss'
 
 //forma mais moderna de se criar componentes
 export function Lista(){
@@ -10,11 +11,11 @@ export function Lista(){
         tempo: '01:30:00'
     }]
     return(
-        <aside>
+        <aside className={style.listaTarefas}>
             <h2>Tarefas do Dia</h2>
             <ul>
                 {tarefas.map((item, index)=>(//() para retornar diretamente;{} indica escopo
-                    <li key="index">{/*recomendado uma key para o react saber distinguir qual item se está trabalhando */}
+                    <li key="index" className={style.item}>{/*recomendado uma key para o react saber distinguir qual item se está trabalhando */}
                         <h3>{item.tarefa}</h3>
                         <span>{item.tempo}</span>
                     </li>
