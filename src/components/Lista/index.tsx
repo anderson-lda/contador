@@ -1,8 +1,8 @@
-import React from "react";
+import Item from './Item'
 import style from './Lista.module.scss'
 
 //forma mais moderna de se criar componentes
-export function Lista(){
+export default function Lista(){
     const tarefas = [{
         tarefa: 'React',
         tempo: '02:00:00'
@@ -15,10 +15,10 @@ export function Lista(){
             <h2>Tarefas do Dia</h2>
             <ul>
                 {tarefas.map((item, index)=>(//() para retornar diretamente;{} indica escopo
-                    <li key="index" className={style.item}>{/*recomendado uma key para o react saber distinguir qual item se está trabalhando */}
-                        <h3>{item.tarefa}</h3>
-                        <span>{item.tempo}</span>
-                    </li>
+                    <Item 
+                      key={index}
+                      {...item}
+                    />
                 ))}
                 
             </ul>
